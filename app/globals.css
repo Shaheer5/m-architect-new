@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+/* =========================
+   LOCAL FONTS
+========================= */
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DMSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DMSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DMSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Mono */
+@font-face {
+  font-family: "DM Mono";
+  src: url("/fonts/DMMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DM Mono";
+  src: url("/fonts/DMMono-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Display */
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("/fonts/CormorantGaramond-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("/fonts/CormorantGaramond-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("/fonts/CormorantGaramond-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("/fonts/CormorantGaramond-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Theme (Tailwind v4 tokens) */
+@theme {
+  /* Colors */
+  --color-wood-50: #faf6f1;
+  --color-wood-100: #f2e8d9;
+  --color-wood-200: #e3ccb0;
+  --color-wood-300: #cfa97f;
+  --color-wood-400: #bc8a57;
+  --color-wood-500: #a97040;
+  --color-wood-600: #8f5a34;
+  --color-wood-700: #73462c;
+  --color-wood-800: #5e3a28;
+  --color-wood-900: #4e3124;
+  --color-wood-950: #2c1a12;
+
+  --color-sand-50: #fdfcf8;
+  --color-sand-100: #f9f5ec;
+  --color-sand-200: #f1e9d4;
+  --color-sand-300: #e6d5b2;
+  --color-sand-400: #d6ba86;
+  --color-sand-500: #c8a063;
+  --color-sand-600: #b4894e;
+  --color-sand-700: #957040;
+  --color-sand-800: #785a37;
+  --color-sand-900: #624b30;
+
+  --color-forest-50: #f2f7f2;
+  --color-forest-100: #e0ede0;
+  --color-forest-200: #c2dbc3;
+  --color-forest-300: #96c098;
+  --color-forest-400: #649e68;
+  --color-forest-500: #437f47;
+  --color-forest-600: #316537;
+  --color-forest-700: #28512d;
+  --color-forest-800: #224127;
+  --color-forest-900: #1d3622;
+  --color-forest-950: #0e1f13;
+
+  --color-cream: #f7f3ec;
+  --color-parchment: #ede8df;
+
+  /* Fonts */
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-mono: "DM Mono", monospace;
+
+  /* Animations */
+  --animate-fade-up: fadeUp 0.6s ease forwards;
+  --animate-fade-in: fadeIn 0.5s ease forwards;
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-wood-950);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-sand-200);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-wood-500);
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-wood-300);
+  color: var(--color-wood-950);
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.65s ease,
+      transform 0.65s ease;
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translate(0);
+  }
+
+  .reveal-delay-1 {
+    transition-delay: 0.1s;
+  }
+  .reveal-delay-2 {
+    transition-delay: 0.2s;
+  }
+  .reveal-delay-3 {
+    transition-delay: 0.3s;
+  }
+  .reveal-delay-4 {
+    transition-delay: 0.4s;
+  }
+}
