@@ -1,7 +1,7 @@
 import { FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
 
 const navLinks = [
-  { label: "About", href: "#philosophy" },
+  { label: "About", href: "#why-us" },
   { label: "Services", href: "#services" },
   { label: "Process", href: "#process" },
   { label: "Portfolio", href: "#portfolio" },
@@ -99,17 +99,17 @@ export default function Footer() {
             <div className="flex flex-col gap-3 sm:gap-4 text-sm text-wood-400">
               <div>
                 <div className="text-wood-600 text-xs mb-1">Email</div>
-                <div className="wrap-break-words">info@m-architect.com</div>
+                <div className="wrap-break-words">info@m-architectpvt.com</div>
               </div>
 
               <div>
                 <div className="text-wood-600 text-xs mb-1">Phone</div>
-                +92 300 000 0000
+                +966 50 569 6040
               </div>
 
               <div>
                 <div className="text-wood-600 text-xs mb-1">Location</div>
-                Pakistan · International
+                Saudi Arabia · Pakistan · International
               </div>
             </div>
           </div>
