@@ -7,6 +7,8 @@ import Portfolio from "@/components/Portfolio";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
+import ProjectsSlideshow from "@/components/ProjectsSlideshow";
+import OngoingProjects from "@/components/OngoingProjects";
 
 export default function Home() {
   return (
@@ -16,8 +18,10 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
+        <ProjectsSlideshow />
+        <OngoingProjects />
         <Process />
-        <Portfolio />
+        {/* <Portfolio /> */}
         <WhyUs />
         <Contact />
       </main>

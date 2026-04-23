@@ -42,7 +42,7 @@ export default function Portfolio() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* HEADER */}
         <div className="mb-12 lg:mb-16">
-          <p className="reveal text-xs font-mono tracking-[0.25em] text-wood-500 uppercase mb-4">Our Work</p>
+          <p className="reveal text-xs font-mono tracking-[0.25em] text-wood-500 uppercase mb-4">Work That Shines</p>
 
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <h2 className="reveal reveal-delay-1 font-display text-3xl sm:text-5xl lg:text-6xl font-light text-wood-900 leading-tight">
