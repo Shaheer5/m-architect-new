@@ -180,6 +180,18 @@ a {
   }
 }
 
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
 @layer utilities {
   .font-display {
     font-family: var(--font-display);

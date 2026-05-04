@@ -9,6 +9,8 @@ import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import ProjectsSlideshow from "@/components/ProjectsSlideshow";
 import OngoingProjects from "@/components/OngoingProjects";
+import Services2 from "@/components/Services2";
+import ProjectShowcase from "@/components/ProjectShowcase";
 
 export default function Home() {
   return (
@@ -17,10 +19,12 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Services />
-        <ProjectsSlideshow />
+        {/* <Services /> */}
+        <Services2 />
+        <ProjectShowcase />
         <OngoingProjects />
         <Process />
+        <ProjectsSlideshow />
         {/* <Portfolio /> */}
         <WhyUs />
         <Contact />

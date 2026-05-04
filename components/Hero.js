@@ -1,19 +1,44 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { ArrowDown, MapPin } from "lucide-react";
 
+const images = ["/images/hero-bg.webp", "/images/hero-bg.webp", "/images/hero-bg.webp", "/images/hero-bg.webp"];
+
 export default function Hero() {
+  const [index, setIndex] = useState(0);
+
+  // Auto change slide
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 4000); // change every 4s
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex flex-col justify-end overflow-hidden">
       {/* fallback background */}
-      <div className="absolute inset-0 bg-linear-to-br from-wood-800 via-wood-700 to-wood-900 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-br from-wood-800 via-wood-700 to-wood-900 z-0" />
 
-      {/* image */}
+      {/* slideshow */}
       <div className="absolute inset-0 z-10">
-        <img src="/images/hero-bg.webp" alt="M-Architect flagship project" className="w-full h-full object-cover" />
+        {images.map((src, i) => (
+          <img
+            key={i}
+            src={src}
+            alt=""
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              i === index ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
       </div>
 
       {/* overlays */}
       <div className="absolute inset-0 z-20">
-        <div className="absolute inset-0 bg-linear-to-t from-wood-950/90 via-wood-900/50 to-wood-800/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-wood-950/90 via-wood-900/50 to-wood-800/20" />
       </div>
 
       {/* content */}
@@ -24,7 +49,7 @@ export default function Hero() {
             Pakistan · Saudi Arabia · International
           </span>
         </div>
-        
+
         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-8xl text-cream font-light leading-[1.05] max-w-4xl mb-5 sm:mb-6">
           Developing <span className="italic text-sand-300">Spaces</span>
           <br />
@@ -52,10 +77,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* scroll */}
       <a
-        href="#philosophy"
-        className="absolute bottom-5 sm:bottom-8 right-5 sm:right-10 z-30 text-sand-400 flex flex-col items-center"
+        href="#services"
+        className="absolute bottom-5 sm:bottom-8 right-5 sm:right-10 z-30 text-sand-400 flex flex-col items-center gap-1 animate-[float_2.5s_ease-in-out_infinite]"
       >
         <span className="hidden md:inline text-[10px] sm:text-xs font-mono rotate-90 mb-2 sm:mb-3">Scroll</span>
         <ArrowDown size={16} />
