@@ -2,63 +2,10 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { ArrowLeft, ArrowRight, MapPin, Tag, ExternalLink } from "lucide-react";
+import { allProjects } from "@/lib/projects";
+import Link from "next/link";
 
-const projects = [
-  {
-    img: "/images/hero-bg.webp",
-    title: "Executive Office Suite",
-    type: "Interior Design",
-    location: "Lahore, Pakistan",
-    year: "2024",
-    area: "3,200 sq ft",
-    desc: "A refined executive workspace blending warm walnut tones with bespoke joinery, integrated lighting, and a custom display wall — designed and built end-to-end.",
-  },
-  {
-    img: "/images/hero-bg.webp",
-    title: "Residential Villa",
-    type: "Architectural Design",
-    location: "Islamabad",
-    year: "2023",
-    area: "6,500 sq ft",
-    desc: "Contemporary villa with climate-responsive façade design, double-height living volumes, and seamless indoor-outdoor flow across terraced landscaping.",
-  },
-  {
-    img: "/images/hero-bg.webp",
-    title: "Boutique Hotel Lobby",
-    type: "Design & Build",
-    location: "Karachi",
-    year: "2023",
-    area: "1,800 sq ft",
-    desc: "Turnkey lobby design and construction featuring hand-selected stone, feature ceilings, bespoke reception millwork, and curated art integration.",
-  },
-  {
-    img: "/images/hero-bg.webp",
-    title: "Commercial Complex",
-    type: "Project Management",
-    location: "Rawalpindi",
-    year: "2022",
-    area: "28,000 sq ft",
-    desc: "Full project management of a mixed-use commercial development — coordinating architecture, MEP, interior fit-out, and contractor delivery on schedule.",
-  },
-  {
-    img: "/images/hero-bg.webp",
-    title: "Café & Retail Space",
-    type: "Interior Fit-Out",
-    location: "Lahore",
-    year: "2024",
-    area: "900 sq ft",
-    desc: "High-energy café interior with fluted timber walls, concrete counters, and custom pendant lighting — complete fit-out delivered in 6 weeks.",
-  },
-  {
-    img: "/images/hero-bg.webp",
-    title: "Private Residence",
-    type: "Design & Build",
-    location: "Islamabad",
-    year: "2024",
-    area: "4,100 sq ft",
-    desc: "Turnkey residential project with architectural design, interior execution, landscaping, and MEP coordination — single point of responsibility.",
-  },
-];
+const projects = allProjects;
 
 // How many are visible at once per breakpoint (controlled via JS)
 const VISIBLE = 2;
@@ -177,7 +124,7 @@ export default function ProjectsSlideshow() {
                 >
                   {/* Image */}
                   <img
-                    src={p.img}
+                    src={p.coverImg}
                     alt={p.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     style={{ transform: hovered === i ? "scale(1.04)" : "scale(1)" }}
@@ -200,7 +147,7 @@ export default function ProjectsSlideshow() {
 
                   {/* ── HOVER DETAIL PANEL (top-left, slides in) ── */}
                   <div
-                    className="absolute top-0 left-0 right-0 p-5 z-20
+                    className="absolute top-0 right-0 p-5 z-20
                                transition-all duration-400 ease-out"
                     style={{
                       opacity: hovered === i ? 1 : 0,
@@ -238,7 +185,8 @@ export default function ProjectsSlideshow() {
                   </div>
 
                   {/* View detail button on hover */}
-                  <div
+                  <Link
+                    href={`/projects/${p.slug}`}
                     className="absolute bottom-5 right-5 z-20 transition-all duration-300"
                     style={{
                       opacity: hovered === i ? 1 : 0,
@@ -248,7 +196,7 @@ export default function ProjectsSlideshow() {
                     <button className="w-9 h-9 rounded-full bg-sand-400 hover:bg-sand-300 flex items-center justify-center transition-colors">
                       <ExternalLink size={14} className="text-wood-950" />
                     </button>
-                  </div>
+                  </Link>
                 </div>
               ))}
             </div>
